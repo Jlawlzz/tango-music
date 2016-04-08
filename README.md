@@ -18,12 +18,13 @@ third-party source. Tango music automatically re-populates your streaming servic
   - The aesthetic and UX/UI of this site are not quite where they should be. The exception to this would be the nav-bar on the left side of the page, which seems great functionally.
   - We would love to expand functionality to other streaming apps like Google Play and possibly Tidal. Echonest allows us to agnostify the track data we take from these services, playlist collaboration across services is not something offered by the industry currently.
 
+##Code
+
 [Original Github Repo](https://github.com/Jlawlzz/personal-project/tree/master/soiree)  
 [Production Site](https://tango-music.herokuapp.com/)  
 
-![Screenshot of app in action](http://recordit.co/YC9c0XAQIY)  
+![Screenshot of app in action](http://g.recordit.co/YC9c0XAQIY.gif)  
 
-##Code Quality  
 ###[Code Im Proud of](https://github.com/Jlawlzz/tango-music/blob/master/app/models/worker.rb)
 
 This is a worker we created to update all playlists on the app every week.  
