@@ -1,0 +1,17 @@
+<div class="nav_top">
+  <ul class='nav navbar-inverse nav-pills nav-stacked nav_style'>
+    <li role="presentation" class="active"><h1><a style="font-family:Pacifico;font-size:70px;" href='/dashboard'>Tango</a></h1></li>
+    <li role="presentation"><h3><%= current_user.name %></h3></li>
+    <li role="presentation"><h4>My Playlist<a href='/personal/playlists/new' ><span class="glyphicon glyphicon-plus-sign" id="add_playlist"></span></a></h4></li>
+    <br>
+    <% current_user.user_playlists.each do |playlist| %>
+      <li class="<%= playlist.platform_type  %>" role="presentation"><%= link_to playlist.name_params, personal_playlist_path(playlist) %></li>
+    <% end %>
+
+    <li role="presentation"><h4>My Groups<a href='/group/playlists/new'><span class="glyphicon glyphicon-plus-sign" id="add_group"></span></a></h4></li>
+
+    <% current_user.group_playlists.each do |playlist| %>
+      <li class="<%= playlist.platform_type %>"role="presentation"><%= link_to playlist.name_params, group_playlist_path(playlist) %></li>
+    <% end %>
+  </ul>
+</div>

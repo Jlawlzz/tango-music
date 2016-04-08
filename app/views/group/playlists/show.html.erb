@@ -1,0 +1,64 @@
+<div class="fluid-container">
+  <div class="panel">
+    <%= render partial: "/layouts/logout_button" %>
+
+    <!-- Default panel contents -->
+    <div class="panel-heading"><%= @playlist.name %>
+    <h4><%= @playlist.description %></h4>
+    </div>
+    <div class="panel-body">
+      <span><%= link_to "Remove Playlist", group_playlist_path(@playlist),
+      method: :delete,
+      :data => { :confirm => "This will prevent this playlist from being updated! This will not remove the playlist from your service."},
+      class:"btn btn-primary btn-lg blue-button remove" %></span>
+
+      <span class="friends">
+        <% @users.each do |user| %>
+        <%= image_tag user.image, class:"fb_image", title: user.name %>
+        <% end %>
+      </span>
+    </div>
+
+    <!-- Table -->
+    <% if @playlist.songs.empty? %>
+      <div class="playlistId" id="<%= @playlist.id %>">
+      </div>
+    <% end %>
+    <% if @playlist.songs.empty? %>
+      <div id="groupSongs">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="container center" style="text-color:white;">
+              <h1> fresh tracks coming your way, hang tight! </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+    <table class="table table-hover">
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th>Song Title</th>
+        <th>Artist</th>
+        <th>Album</th>
+        <th></th>
+      </tr>
+      <% count = 0 %>
+        <% cache cache_key_for(Playlist, "#{@playlist.id}") do %>
+          <% @playlist.songs.last(30).each do |song| %>
+            <% count += 1 %>
+            <tr>
+              <td><%= count %></td>
+              <td><%= image_tag song.image, class:"img-circle" %></td>
+              <td><%= song.title %></td>
+              <td><%= song.artist %></td>
+              <td><%= song.album %></td>
+              <td><a href="#{link}" class="provider"><%= image_tag 'spotify_button' %></a></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>

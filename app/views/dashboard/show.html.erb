@@ -1,0 +1,22 @@
+<%= render partial: "/layouts/logout_button" %>
+
+<div class="user-dash-info pull-left">
+  <% if current_user.invites.count > 0 %>
+    <button type="button" class="btn btn-primary btn-lg active logout-button">
+      <%= link_to "Invites: #{current_user.invites.count}", '/group/invites', class:"logout" %>
+    </button>
+  <% end %>
+  <% if !spotify_user %>
+    <button type="button" class="btn btn-primary btn-lg active blue-button">
+      <%= image_tag 'http://www.tunecore.com/images/music_stores/spotify_logo.png', class: "img-circle user-img" %>
+      <%= link_to 'Login to Spotify', '/auth/spotify', class:"logout" %>
+    </button>
+  <% end %>
+</div>
+<div class="text-center login-content">
+<h1 class="title-text">Tango</h1>
+<br>
+<br>
+<h5 class='title-description'>personalized weekly playlists for you.</br>delivered directly to your streaming service.</h5>
+</div>
+<div class="text-center login-content">
