@@ -1,5 +1,3 @@
-##* Note: The Echonest API which Tango Music relies on has been depricated and integrated full-time into the Spotify service.  We are working on revising the service with the new Spotify API to return functionality to the site.
-
 # Tango Music
 
 Tango is a project aiming to off-board playlist curation and creation from the streaming services responsibility to a
